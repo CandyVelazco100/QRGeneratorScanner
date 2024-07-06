@@ -59,3 +59,8 @@ function download(tempFile, file_name, extension) {
     a.click();
     a.remove();
 }
+
+qrInput.addEventListener("input", () => {
+    if(!qrInput.value.trim())
+        return generatorDiv.classList.remove("active");
+})

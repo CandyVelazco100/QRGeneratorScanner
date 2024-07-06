@@ -48,12 +48,14 @@ nav button{
     height: 45px;
     letter-spacing: 2px;
     border-bottom: 2px solid #ccc;
+    opacity: 0.5;
 }
 
 nav button.active{
     border-bottom: 2px solid #2D74F6;
     font-weight: 700;
     color: #2D74F6;
+    opacity: 1;
 }
 
 ::-webkit-scrollbar{
