@@ -1,5 +1,11 @@
 .generator{
     overflow: hidden;
+    height: 215px;
+    transition: height 0.5s;
+}
+
+.generator.active{
+    height: 544px;
 }
 
 .generator h1{
