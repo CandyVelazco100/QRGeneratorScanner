@@ -1,5 +1,7 @@
 .scanner{
     overflow: hidden;
+    height: 280px;
+    transition: 0.2s;
 }
 
 .scanner h1{
@@ -86,4 +88,20 @@
     font-size: 16px;
     letter-spacing: 1px;
     border-radius: 5px;
+}
+
+.scanner.active{
+    height: 530px;
+}
+
+.scanner.active .scanner-form{
+    pointer-events: none;
+}
+
+.scanner-form.active-img img{
+    display: block;
+}
+
+.scanner-form.active-img .content, .scanner-form.active-img video{
+    display: none;
 }
