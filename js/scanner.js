@@ -59,3 +59,15 @@ copyBtn.addEventListener("click", () => {
     let text = textarea.textContent;
     navigator.clipboard.writeText(text);
 })
+
+closeBtn.addEventListener("click", () => stopScan());
+
+/**
+ * Stops the scan and resets the UI.
+*/
+function stopScan(){
+    p.innerText = "Upload QR Code to scan 📲";
+
+    scannerDiv.classList.remove("active");
+    form.classList.remove("active-img");
+}
