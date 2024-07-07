@@ -105,3 +105,15 @@
 .scanner-form.active-img .content, .scanner-form.active-img video{
     display: none;
 }
+
+.scanner-form.active-video video{
+    display: block;
+}
+
+.scanner-form.active-video .content, .scanner-form.active-video img{
+    display: none;
+}
+
+.PointerEvents{
+    pointer-events: none;
+}

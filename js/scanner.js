@@ -61,13 +61,47 @@ copyBtn.addEventListener("click", () => {
 })
 
 closeBtn.addEventListener("click", () => stopScan());
+stopCam.addEventListener("click", () => stopScan());
 
 /**
  * Stops the scan and resets the UI.
 */
 function stopScan(){
     p.innerText = "Upload QR Code to scan 📲";
+    camera.style.display = "inline-block";
 
+    stopCam.style.display = "none";
+    
+    form.classList.remove("active-video", "active-img", "PointerEvents");
     scannerDiv.classList.remove("active");
-    form.classList.remove("active-img");
+
+    if(scanner) scanner.stop();
 }
+
+let scanner;
+
+camera.addEventListener("click", () => {
+    camera.style.display = "none";
+    form.classList.add("PointerEvents");
+    p.innerText = "Scanning QR Code...";
+
+    scanner = new Instascan.Scanner({video: video});
+    
+    Instascan.Camera.getCameras()
+    .then(cameras => {
+            if(cameras.length > 0){
+                scanner.start(cameras[0]).then(() => {
+                    form.classList.add("active-video");
+                    stopCam.style.display = "inline-block";
+                })
+            }else{
+                console.log("No camera found")
+            }
+        })
+        .catch(err => console.error(err))
+
+    scanner.addListener("scan", c => {
+        scannerDiv.classList.add("active");
+        textarea.innerText = c;
+    })
+})
