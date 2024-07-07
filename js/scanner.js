@@ -51,3 +51,11 @@ function fetchRequest(file){
         textarea.innerText = text;
     })
 }
+
+/**
+ * Adds an event listener to the copy button element to copy the scanned QR code text to the clipboard.
+ */
+copyBtn.addEventListener("click", () => {
+    let text = textarea.textContent;
+    navigator.clipboard.writeText(text);
+})
